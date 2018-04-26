@@ -1,4 +1,15 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+import React from 'react'
+import { AppRegistry } from 'react-native'
+import { Provider } from 'react-redux'
+import App from './App'
+import configureStore from './src/store/configureStore'
 
-AppRegistry.registerComponent('expences', () => App);
+const store = configureStore()
+
+const RootComponent = () => (
+  <Provider  store={store}>
+    <App/>
+  </Provider>
+)
+
+AppRegistry.registerComponent('expences', () => RootComponent);
